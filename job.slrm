@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH -J hello-world
+#SBATCH --time=720:00:00
+#SBATCH -N 2
+#SBATCH --tasks-per-node=12
+#SBATCH -e output-%j.log
+#SBATCH -o output-%j.out
+
+# Cargando los modulos necesarios
+module load openmpi/4.1.0
+
+mpirun ./hello > output.log
